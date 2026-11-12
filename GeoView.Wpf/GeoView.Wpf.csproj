@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+	<UseWPF>true</UseWPF>
+	<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+
+	<!-- NuGet metadata -->
+	<PackageId>GeoView.Wpf</PackageId>
+	<Version>1.0.0</Version>
+	<Authors>Matthew Muehlhauser</Authors>
+	<Description>A reusable WebView2-based GeoView map control for WPF.</Description>
+	<PackageTags>wpf;webview2;geoview;map;NRCan</PackageTags>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<PackageReference Include="Microsoft.Web.WebView2" Version="1.0.4314.35" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="GeoViewControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+	  <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+	<Resource Include="Assets\config.default.json" />
+  </ItemGroup>
+
+</Project>
