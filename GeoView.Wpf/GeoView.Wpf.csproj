@@ -10,7 +10,7 @@
 
 	<!-- NuGet metadata -->
 	<PackageId>GeoView.Wpf</PackageId>
-	<Version>1.0.0</Version>
+	<Version>1.0.1</Version>
 	<Authors>Matthew Muehlhauser</Authors>
 	<Description>A reusable WebView2-based GeoView map control for WPF.</Description>
 	<PackageTags>wpf;webview2;geoview;map;NRCan</PackageTags>
@@ -34,6 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
+	<Resource Include="Assets\GeoView.html" />
 	<Resource Include="Assets\config.default.json" />
   </ItemGroup>
 
