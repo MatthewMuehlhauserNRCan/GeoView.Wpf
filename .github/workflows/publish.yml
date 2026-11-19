@@ -31,7 +31,10 @@ jobs:
         run: dotnet build GeoView.Wpf/GeoView.Wpf.csproj --configuration Release --no-restore
 
       - name: Pack
-        run: dotnet pack GeoView.Wpf/GeoView.Wpf.csproj --configuration Release --no-build --output ./nupkg-out
+        run: dotnet pack GeoView.Wpf/GeoView.Wpf.csproj --configuration Release --no-build --output "${{ github.workspace }}/nupkg-out"
+
+      - name: List pack output (debug)
+        run: Get-ChildItem -Recurse "${{ github.workspace }}/nupkg-out"
 
       # Exchanges the GitHub OIDC token for a short-lived NuGet.org API key,
       # based on the Trusted Publishing policy configured on nuget.org for this repo/workflow.
@@ -43,7 +46,7 @@ jobs:
 
       - name: Push to NuGet.org
         run: |
-          dotnet nuget push ./nupkg-out/*.nupkg `
+          dotnet nuget push "${{ github.workspace }}/nupkg-out/*.nupkg" `
             --source https://api.nuget.org/v3/index.json `
             --api-key "${{ steps.nuget-login.outputs.NUGET_API_KEY }}" `
             --skip-duplicate
