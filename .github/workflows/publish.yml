@@ -46,7 +46,8 @@ jobs:
 
       - name: Push to NuGet.org
         run: |
-          dotnet nuget push "${{ github.workspace }}/nupkg-out/*.nupkg" `
+          $package = Get-ChildItem "${{ github.workspace }}/nupkg-out" -Filter *.nupkg | Select-Object -First 1
+          dotnet nuget push $package.FullName `
             --source https://api.nuget.org/v3/index.json `
             --api-key "${{ steps.nuget-login.outputs.NUGET_API_KEY }}" `
             --skip-duplicate
