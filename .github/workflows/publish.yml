@@ -39,7 +39,7 @@ jobs:
         id: nuget-login
         uses: NuGet/login@v1
         with:
-          nuget-api-url: https://api.nuget.org
+          user: ${{ vars.NUGET_USER }}
 
       - name: Push to NuGet.org
         run: |
